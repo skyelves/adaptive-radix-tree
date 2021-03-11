@@ -10,21 +10,27 @@
 
 namespace art {
 
-template <class T> class art;
+    template<class T>
+    class art;
 
-template <class T> class leaf_node : public node<T> {
-public:
-  explicit leaf_node(T *value);
-  bool is_leaf() const override;
+    template<class T>
+    class leaf_node : public node<T> {
+    public:
+        explicit leaf_node(T *value);
 
-  T *value_;
-};
+        bool is_leaf() const override;
 
-template <class T>
-leaf_node<T>::leaf_node(T *value): value_(value) {}
+        T *value_;
+    };
 
-template <class T> 
-bool leaf_node<T>::is_leaf() const { return true; }
+    template<class T>
+    leaf_node<T>::leaf_node(T *value) {
+        value_ = (T *) malloc(sizeof(T));
+        *value_ = *value;
+    }
+
+    template<class T>
+    bool leaf_node<T>::is_leaf() const { return true; }
 
 } // namespace art
 
