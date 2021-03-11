@@ -18,15 +18,25 @@ namespace art {
     public:
         explicit leaf_node(T *value);
 
+        T *set_value(T *value);
+
         bool is_leaf() const override;
 
-        T *value_;
+        T *value_ = NULL;
     };
 
     template<class T>
     leaf_node<T>::leaf_node(T *value) {
         value_ = (T *) malloc(sizeof(T));
         *value_ = *value;
+    }
+
+    template<class T>
+    T *leaf_node<T>::set_value(T *value) {
+        if (value_ == NULL)
+            value_ = (T *) malloc(sizeof(T));
+        *value_ = *value;
+        return value_;
     }
 
     template<class T>

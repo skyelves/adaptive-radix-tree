@@ -9,6 +9,13 @@
 #include <chrono>
 #include <thread>
 #include <sys/time.h>
+#include <stdlib.h>
+#ifndef __FreeBSD__
+#include <malloc.h>
+#else
+#include <malloc_np.h>
+#endif
+#include <libvmmalloc.h>
 
 using namespace std;
 

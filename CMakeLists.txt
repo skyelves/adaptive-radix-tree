@@ -41,34 +41,34 @@ target_include_directories(zipf PUBLIC ${ZIPF_INCLUDE_DIR})
 add_executable(main 
   "${PROJECT_SOURCE_DIR}/src/example.cpp"
   )
-target_link_libraries(main art zipf)
+target_link_libraries(main art zipf vmmalloc)
 
-# test executable
-add_executable(test
-  "${PROJECT_SOURCE_DIR}/test/art.cpp"
-  "${PROJECT_SOURCE_DIR}/test/main.cpp"
-  "${PROJECT_SOURCE_DIR}/test/node.cpp"
-  "${PROJECT_SOURCE_DIR}/test/inner_node.cpp"
-  "${PROJECT_SOURCE_DIR}/test/node_4.cpp"
-  "${PROJECT_SOURCE_DIR}/test/node_16.cpp"
-  "${PROJECT_SOURCE_DIR}/test/node_48.cpp"
-  "${PROJECT_SOURCE_DIR}/test/node_256.cpp"
-  )
-target_link_libraries(test art doctest)
-
-# bench executable
-add_executable(bench
-  "${PROJECT_SOURCE_DIR}/bench/delete.cpp"
-  "${PROJECT_SOURCE_DIR}/bench/insert.cpp"
-  "${PROJECT_SOURCE_DIR}/bench/main.cpp"
-  "${PROJECT_SOURCE_DIR}/bench/mixed.cpp"
-  "${PROJECT_SOURCE_DIR}/bench/mixed_dense.cpp"
-  # "${PROJECT_SOURCE_DIR}/bench/node_4.cpp"
-  # "${PROJECT_SOURCE_DIR}/bench/node_16.cpp"
-  # "${PROJECT_SOURCE_DIR}/bench/node_48.cpp"
-  # "${PROJECT_SOURCE_DIR}/bench/node_256.cpp"
-  "${PROJECT_SOURCE_DIR}/bench/query_sparse_uniform.cpp"
-  "${PROJECT_SOURCE_DIR}/bench/query_sparse_uniform_64.cpp"
-  "${PROJECT_SOURCE_DIR}/bench/query_sparse_zipf.cpp"
-  )
-target_link_libraries(bench art picobench zipf)
+## test executable
+#add_executable(test
+#  "${PROJECT_SOURCE_DIR}/test/art.cpp"
+#  "${PROJECT_SOURCE_DIR}/test/main.cpp"
+#  "${PROJECT_SOURCE_DIR}/test/node.cpp"
+#  "${PROJECT_SOURCE_DIR}/test/inner_node.cpp"
+#  "${PROJECT_SOURCE_DIR}/test/node_4.cpp"
+#  "${PROJECT_SOURCE_DIR}/test/node_16.cpp"
+#  "${PROJECT_SOURCE_DIR}/test/node_48.cpp"
+#  "${PROJECT_SOURCE_DIR}/test/node_256.cpp"
+#  )
+#target_link_libraries(test art doctest)
+#
+## bench executable
+#add_executable(bench
+#  "${PROJECT_SOURCE_DIR}/bench/delete.cpp"
+#  "${PROJECT_SOURCE_DIR}/bench/insert.cpp"
+#  "${PROJECT_SOURCE_DIR}/bench/main.cpp"
+#  "${PROJECT_SOURCE_DIR}/bench/mixed.cpp"
+#  "${PROJECT_SOURCE_DIR}/bench/mixed_dense.cpp"
+#  # "${PROJECT_SOURCE_DIR}/bench/node_4.cpp"
+#  # "${PROJECT_SOURCE_DIR}/bench/node_16.cpp"
+#  # "${PROJECT_SOURCE_DIR}/bench/node_48.cpp"
+#  # "${PROJECT_SOURCE_DIR}/bench/node_256.cpp"
+#  "${PROJECT_SOURCE_DIR}/bench/query_sparse_uniform.cpp"
+#  "${PROJECT_SOURCE_DIR}/bench/query_sparse_uniform_64.cpp"
+#  "${PROJECT_SOURCE_DIR}/bench/query_sparse_zipf.cpp"
+#  )
+#target_link_libraries(bench art picobench zipf)
